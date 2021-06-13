@@ -13,6 +13,8 @@ const stripePromise = loadStripe(
   'pk_test_51Im8TuJvjbS7Fo0A9xbdLtiAGwCyiqK7Q6LnevEE7GWg6WabsU8pzUsLsk4ShTWzyzuktbikZzx2bGcQgcIRxPUg009nCKhxTo'
 );
 
+console.log(process.env.REACT_APP_BACKEND_DOMAIN);
+
 ReactDOM.render(
   <Provider store={store}>
     <Elements stripe={stripePromise}>

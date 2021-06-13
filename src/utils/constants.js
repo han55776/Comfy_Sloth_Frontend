@@ -48,13 +48,12 @@ export const services = [
 ];
 
 //export const products_url = 'https://course-api.com/react-store-products';
-export const products_url = 'http://localhost:4500/api/products';
+export const products_url = `${process.env.REACT_APP_BACKEND_DOMAIN}/api/products`;
 
-export const user_url = 'http://localhost:4500/api/users';
+export const user_url = `${process.env.REACT_APP_BACKEND_DOMAIN}/api/users`;
 
-export const order_url = 'http://localhost:4500/api/orders';
+export const order_url = `${process.env.REACT_APP_BACKEND_DOMAIN}/api/orders`;
 
-export const payment_url = 'http://localhost:4500/api/payments';
+export const payment_url = `${process.env.REACT_APP_BACKEND_DOMAIN}/api/payments`;
 
-//export const single_product_url = `https://course-api.com/react-store-single-product?id=`;
-export const single_product_url = 'http://localhost:4500/api/products/';
+export const single_product_url = `${process.env.REACT_APP_BACKEND_DOMAIN}/api/products/`;
