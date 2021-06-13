@@ -32,8 +32,7 @@
     "kill": " npx kill-port 3000 ",
     "start": "react-scripts start",
     "build": "npm run compile:style && react-scripts build",
-    "compile:style": "node-sass ./src/styles/main.scss ./src/index.css",
-    "heroku-postbuild": "npm install && npm run build"
+    "compile:style": "node-sass ./src/styles/main.scss ./src/index.css"
   },
   "eslintConfig": {
     "extends": [
