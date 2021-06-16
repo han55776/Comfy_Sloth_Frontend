@@ -37,15 +37,13 @@ export const updateSort = (e) => (dispatch) => {
   // for demonstration
   // const name = e.target.name
   const value = e.target.value;
-  console.log(value);
   dispatch({ type: UPDATE_SORT, payload: value });
 };
 
 export const updateFilters = (e) => (dispatch) => {
   let name = e.target.name;
   let value = e.target.value;
-  console.log(name);
-  console.log(value);
+
   if (name === 'category') {
     value = e.target.textContent;
   }

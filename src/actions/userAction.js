@@ -97,8 +97,6 @@ export const placeOrder =
         total_amount,
       };
 
-      console.log(body);
-
       await axios.post(`${order_url}`, body, config);
 
       dispatch({ type: PLACE_ORDER_SUCCESS });
