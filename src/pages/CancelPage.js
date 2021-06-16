@@ -1,10 +1,16 @@
 import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { cancelPendingOrder } from '../actions/userAction';
 
 const CancelPage = () => {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+
   useEffect(() => {
-    localStorage.setItem('session', undefined);
-  });
+    dispatch(cancelPendingOrder(id));
+  }, []);
 
   return (
     <div className='page-100 cancel'>

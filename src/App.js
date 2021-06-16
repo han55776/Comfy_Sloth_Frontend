@@ -57,10 +57,10 @@ const App = () => {
         <Route exact path='/checkout'>
           <Checkout />
         </Route>
-        <Route exact path='/cancel'>
+        <Route exact path='/cancel/:id'>
           <Cancel />
         </Route>
-        <Route exact path='/success'>
+        <Route exact path='/success/:id'>
           <Success />
         </Route>
         <Route path='*'>

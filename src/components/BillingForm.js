@@ -1,16 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import { formatPrice } from '../utils/helpers';
-import { Link, useHistory } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import { placeOrder } from '../actions/userAction';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useStripe } from '@stripe/react-stripe-js';
 import { payment_url } from '../utils/constants';
 
 const BillingForm = () => {
-  // const dispatch = useDispatch();
-  // const history = useHistory();
+  const dispatch = useDispatch();
   const stripe = useStripe();
 
   const total_amount = useSelector((state) => state.cart.total_amount);
@@ -31,37 +30,21 @@ const BillingForm = () => {
 
     var session = response.data.session;
 
-    var payload = {
-      session,
-      cart,
-      token,
-      shipping_fee,
-      total_amount,
-    };
-
-    localStorage.setItem('session', JSON.stringify(payload));
+    dispatch(
+      placeOrder(
+        session,
+        session.sessionId,
+        token,
+        cart,
+        shipping_fee,
+        total_amount
+      )
+    );
 
     await stripe.redirectToCheckout({
       sessionId: session.id,
     });
   };
-
-  // const updateUserOrder = async (session) => {
-  //   const config = {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   };
-
-  //   var body = {
-  //     stripe_id: session,
-  //     cart,
-  //     shipping_fee,
-  //     total_amount,
-  //   };
-
-  //   console.log('passed placeOrder');
-
-  //   await axios.post(`${order_url}`, body, config);
-  // };
 
   return (
     <section className='billingform'>

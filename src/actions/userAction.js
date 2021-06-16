@@ -79,28 +79,59 @@ export const createCheckoutSession = (cart, token) => async (dispatch) => {
   }
 };
 
-export const placeOrder = (
-  session,
-  cart,
-  token,
-  shipping_fee,
-  total_amount
-) => async (dispatch) => {
+export const placeOrder =
+  (session, sessionId, token, cart, shipping_fee, total_amount) =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: PLACE_ORDER_BEGIN });
+
+      const config = {
+        headers: { Authorization: `Bearer ${token}` },
+      };
+
+      var body = {
+        stripe_id: session,
+        session: sessionId,
+        cart,
+        shipping_fee,
+        total_amount,
+      };
+
+      console.log(body);
+
+      await axios.post(`${order_url}`, body, config);
+
+      dispatch({ type: PLACE_ORDER_SUCCESS });
+    } catch (error) {
+      dispatch({ type: PLACE_ORDER_ERROR });
+    }
+  };
+
+export const completePendingOrder = (id) => async (dispatch) => {
   try {
     dispatch({ type: PLACE_ORDER_BEGIN });
 
-    const config = {
-      headers: { Authorization: `Bearer ${token}` },
+    var body = {
+      session: id,
     };
+
+    await axios.post(`${order_url}/pending`, body);
+
+    dispatch({ type: PLACE_ORDER_SUCCESS });
+  } catch (error) {
+    dispatch({ type: PLACE_ORDER_ERROR });
+  }
+};
+
+export const cancelPendingOrder = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: PLACE_ORDER_BEGIN });
 
     var body = {
-      stripe_id: session,
-      cart,
-      shipping_fee,
-      total_amount,
+      session: id,
     };
 
-    await axios.post(`${order_url}`, body, config);
+    await axios.put(`${order_url}/pending`, body);
 
     dispatch({ type: PLACE_ORDER_SUCCESS });
   } catch (error) {
