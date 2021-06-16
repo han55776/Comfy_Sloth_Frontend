@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { getUniqueValues, formatPrice } from '../utils/helpers';
 import { FaCheck } from 'react-icons/fa';
 

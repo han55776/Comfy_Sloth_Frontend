@@ -44,10 +44,6 @@ const CartButtons = () => {
           <span className='cartbutton__auth'>Hi,{`${user.name}`}</span>
         </button>
       ) : (
-        // <button type='button' className='auth-btn' onClick={loginWithRedirect}>
-        //   <FaUserPlus /> <span className='auth'>Login</span>
-        // </button>
-
         <Link to='/login' className='cartbutton__auth-btn'>
           <FaUser /> <span className='cartbutton__auth'>Login</span>
         </Link>

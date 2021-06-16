@@ -5,13 +5,11 @@ import { formatPrice } from '../utils/helpers';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { refundOrder } from '../actions/userAction';
-import { useStripe } from '@stripe/react-stripe-js';
 
 const Order = ({ _id, total, createdAt }) => {
   const [showModal, setShowModal] = useState(false);
   const [orderIdProp, setOrderIdProp] = useState('');
 
-  const stripe = useStripe();
   const dispatch = useDispatch();
   const history = useHistory();
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { formatPrice } from '../utils/helpers';
-import AmountButtons from './AmountButtons';
 import { FaTrash } from 'react-icons/fa';
 
 import { removeItem, calculate_totalAmount } from '../actions/cartAction';

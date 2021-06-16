@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import logo from '../assets/logo.svg';
 import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { links } from '../utils/constants';
 import CartButtons from './CartButtons';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { openSidebar } from '../actions/productsAction';
 
 const Nav = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.user);
 
   const sidebarHanlder = () => {
     dispatch(openSidebar());

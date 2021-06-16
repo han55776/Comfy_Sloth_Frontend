@@ -8,7 +8,6 @@ import Login from './LoginPage';
 import Register from './RegisterPage';
 import Orders from './OrdersPage';
 import SingleProduct from './SingleProductPage';
-import AuthWrapper from './AuthWrapper';
 import Cancel from './CancelPage';
 import Success from './SuccessPage';
 
@@ -20,7 +19,6 @@ export {
   Cart,
   Error,
   Checkout,
-  AuthWrapper,
   Login,
   Register,
   Orders,

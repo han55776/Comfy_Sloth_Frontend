@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { PageHero, Loading, Error } from '../components';
+import { PageHero, Loading } from '../components';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../actions/userAction';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatPrice } from '../utils/helpers';
-import { Link, useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const CartTotals = () => {
   const history = useHistory();
